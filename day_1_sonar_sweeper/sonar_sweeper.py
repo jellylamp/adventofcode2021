@@ -1,5 +1,7 @@
 class SonarSweeper(object):
-    def run(self, input_list):
+
+    @staticmethod
+    def first_scenario(input_list):
         previous = 0
         increase_count = 0
 
@@ -11,7 +13,34 @@ class SonarSweeper(object):
             if current > previous:
                 increase_count += 1
             previous = current
-        print(f'Sonar Increased by {increase_count}')
+        print(f'Scenario 1: Sonar Increased by {increase_count}')
+
+    def second_scenario(self, input_list):
+        first = 0
+        second = 0
+        previous_sum = 0
+        increase_count = 0
+
+        for index in range(0, len(input_list)):
+            current = input_list[index]
+            if index == 0:
+                first = current
+                continue
+            elif index == 1:
+                second = current
+                continue
+
+            current_sum = first + second + current
+
+            # Don't count the first sum nothing to compare to
+            if current_sum > previous_sum and index != 2:
+                increase_count += 1
+
+            first = second
+            second = current
+            previous_sum = current_sum
+
+        print(f'Scenario 2: Sonar Increased by {increase_count}')
 
 
 if __name__ == '__main__':
@@ -23,4 +52,5 @@ if __name__ == '__main__':
         # convert each item to int type
         input_list_temp[i] = int(input_list_temp[i])
 
-    SonarSweeper().run(input_list_temp)
+    SonarSweeper().first_scenario(input_list_temp)
+    SonarSweeper().second_scenario(input_list_temp)
