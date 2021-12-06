@@ -15,7 +15,8 @@ class SonarSweeper(object):
             previous = current
         print(f'Scenario 1: Sonar Increased by {increase_count}')
 
-    def second_scenario(self, input_list):
+    @staticmethod
+    def second_scenario(input_list):
         first = 0
         second = 0
         previous_sum = 0
