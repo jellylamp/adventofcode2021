@@ -8,7 +8,6 @@ class BinaryDiagnostic(object):
         epsilon_rate = ''
 
         for index in range(0, len(input_list)):
-            print(f'input: {input_list[index]}')
             for char_index, character in enumerate(input_list[index]):
                 # initialize dictionaries dynamically
                 if not zero_count_array.get(char_index, None):
@@ -25,9 +24,6 @@ class BinaryDiagnostic(object):
                     zero_count_array[char_index] += 1
                 if character is 1:
                     one_count_array[char_index] += 1
-
-        print(zero_count_array)
-        print(one_count_array)
 
         # gamma rate is most used item per index
         for index in range(0, len(zero_count_array)):
