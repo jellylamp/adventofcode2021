@@ -33,8 +33,6 @@ def second_scenario(self):
     # numbers to consider set here just for initial if.
     numbers_to_consider = input_list
     bit_count = str(input_list[0])
-    final_oxygen = ''
-    final_co2 = ''
 
     for index, character in enumerate(bit_count):
         # for oxygen rating, get higher first number count from the count arrays. Higher number goes to oxygen.
